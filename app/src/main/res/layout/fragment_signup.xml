@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+
+    <TextView
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:id="@+id/textView"
+        android:textSize="30dp"
+        android:textColor="@color/accent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Create An Account" />
+    <EditText
+        android:layout_marginTop="40dp"
+        android:id="@+id/editTextSignupName"
+        android:layout_width="300dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_height="40dp"
+        android:background="#ecebeb"
+        android:textSize="20dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="First Name" />
+    <EditText
+        android:layout_marginTop="10dp"
+        android:id="@+id/editTextSignupLastName"
+        android:layout_width="300dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_height="40dp"
+        android:background="#ecebeb"
+        android:textSize="20dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Last Name" />
+    <EditText
+        android:layout_marginTop="10dp"
+        android:id="@+id/editTextSignupAddr"
+        android:layout_width="300dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_height="40dp"
+        android:background="#ecebeb"
+        android:textSize="20dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:text="Address" />
+    <EditText
+        android:layout_marginTop="10dp"
+        android:id="@+id/editTextSignupEmail"
+        android:layout_width="300dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_height="40dp"
+        android:background="#ecebeb"
+        android:textSize="20dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:text="Email" />
+    <EditText
+        android:layout_marginTop="10dp"
+        android:id="@+id/editTextSignupPhone"
+        android:layout_width="300dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_height="40dp"
+        android:background="#ecebeb"
+        android:textSize="20dp"
+        android:ems="10"
+        android:inputType="phone"
+        android:text="Phone" />
+
+    <EditText
+        android:layout_marginTop="10dp"
+        android:id="@+id/editTextSignupPass"
+        android:layout_width="300dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_height="40dp"
+        android:background="#ecebeb"
+        android:textSize="20dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:text="Password" />
+    <TextView
+        android:layout_marginTop="60dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:text="By Signing up you are agreeing to terms and conditions of RJT Shopping App"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:gravity="center"
+        android:layout_gravity="center"
+
+        android:id="@+id/buttonSignup"
+        android:background="@drawable/button_layout"
+        android:layout_width="300dp"
+        android:textSize="15dp"
+        android:layout_height="wrap_content"
+        android:text="Sign Up" />
+
+    <Button
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:id="@+id/buttonAlrdyAcc"
+        android:textSize="15dp"
+        android:background="@drawable/button_layout_simple"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Already Have an account" />
+
+
+
+
+
+
+</LinearLayout>

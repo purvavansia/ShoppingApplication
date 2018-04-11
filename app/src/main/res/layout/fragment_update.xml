@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+
+    <TextView
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:id="@+id/textView"
+        android:textSize="30dp"
+        android:textColor="@color/accent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Update Account" />
+    <ImageView
+        android:layout_marginTop="40dp"
+        android:src="@drawable/user"
+        android:layout_gravity="center"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
+    <EditText
+        android:layout_marginTop="40dp"
+        android:id="@+id/editTextUpdateFirstName"
+        android:layout_width="300dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_height="40dp"
+        android:background="#ecebeb"
+        android:textSize="20dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="First Name" />
+    <EditText
+        android:layout_marginTop="10dp"
+        android:id="@+id/editTextUpdateLastName"
+        android:layout_width="300dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_height="40dp"
+        android:background="#ecebeb"
+        android:textSize="20dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Last Name" />
+    <EditText
+        android:layout_marginTop="10dp"
+        android:id="@+id/editTextUpdateAddr"
+        android:layout_width="300dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_height="40dp"
+        android:background="#ecebeb"
+        android:textSize="20dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:text="Address" />
+    <EditText
+        android:layout_marginTop="10dp"
+        android:id="@+id/editTextUpdateEmail"
+        android:layout_width="300dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_height="40dp"
+        android:background="#ecebeb"
+        android:textSize="20dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:text="Email" />
+    <EditText
+        android:layout_marginTop="10dp"
+        android:id="@+id/editTextUpdatePhone"
+        android:layout_width="300dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_height="40dp"
+        android:background="#ecebeb"
+        android:textSize="20dp"
+        android:ems="10"
+        android:inputType="phone"
+        android:text="Phone" />
+
+    <EditText
+        android:layout_marginTop="10dp"
+        android:id="@+id/editTextUpdatePass"
+        android:layout_width="300dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_height="40dp"
+        android:background="#ecebeb"
+        android:textSize="20dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:text="Password" />
+
+
+    <Button
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:id="@+id/buttonSignin"
+        android:background="@drawable/button_layout"
+        android:layout_width="300dp"
+        android:textSize="15dp"
+        android:layout_height="wrap_content"
+        android:text="Update" />
+
+
+
+
+
+
+
+</LinearLayout>
