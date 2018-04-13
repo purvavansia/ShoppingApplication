@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity
                         String cdiscription = myCategory.getString("cdiscription");
                         //Toast.makeText(MainActivity.this,image,Toast.LENGTH_SHORT).show();
 
-                        category = new Category(name,image,cid,cdiscription);
+                        category = new Category(name,image,cdiscription,cid);
                         categories.add(category);
 
                     }

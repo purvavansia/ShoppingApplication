@@ -2,11 +2,14 @@ package com.example.purva.shoppingapplication;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -15,15 +18,13 @@ import java.util.ArrayList;
  */
 
 public class CustomAdapterGrid  extends RecyclerView.Adapter<CustomAdapterGrid.MyViewHolder>{
-    ArrayList Necklacenames;
-    ArrayList NecklaceImg;
-    ArrayList NecklacePrice;
+    ArrayList productList;
+
     Context context;
-    public CustomAdapterGrid(Context context, ArrayList Necklacenames, ArrayList NecklaceImg, ArrayList NecklacePrice) {
+    public CustomAdapterGrid(Context context, ArrayList productList) {
         this.context = context;
-        this.Necklacenames = Necklacenames;
-        this.NecklaceImg = NecklaceImg;
-        this.NecklacePrice = NecklacePrice;
+        this.productList = productList;
+
     }
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -34,16 +35,19 @@ public class CustomAdapterGrid  extends RecyclerView.Adapter<CustomAdapterGrid.M
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        holder.textViewName.setText(""+Necklacenames.get(position));
-        holder.textViewPrice.setText(""+NecklacePrice.get(position));
-        holder.imageView.setImageResource((Integer) NecklaceImg.get(position));
+        Products products = (Products) productList.get(position);
+
+        holder.textViewName.setText(products.getPname());
+        holder.textViewPrice.setText(products.getPrice());
+        //holder.image.setImageResource((Integer) itemImages.get(position));
+        Picasso.with(context).load(products.getPimage()).into(holder.imageView);
     }
 
 
 
     @Override
     public int getItemCount() {
-        return Necklacenames.size();
+        return productList.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {

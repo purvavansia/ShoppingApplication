@@ -1,7 +1,9 @@
 package com.example.purva.shoppingapplication;
 
 import android.app.Fragment;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -30,23 +32,27 @@ import org.json.JSONObject;
 
 public class ForgetPasswordFragment extends Fragment {
 
-    EditText email, password;
+    EditText mobile, password;
+    SharedPreferences sharedPreferences;
     Button update;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_forget_password,container,false);
 
-        email = view.findViewById(R.id.editTextForgotEmail);
+        mobile = view.findViewById(R.id.editTextForgotMobile);
         password = view.findViewById(R.id.editTextForgotPassword);
         update = view.findViewById(R.id.buttonForgotPass);
+        sharedPreferences = getActivity().getSharedPreferences("myfile", Context.MODE_PRIVATE);
+        final String store_pass = sharedPreferences.getString("password","");
 
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                String email_addr = email.getText().toString();
-                String url = "http://rjtmobile.com/aamir/e-commerce/android-app/androidapp/shop_fogot_pass.php?&email="+email_addr;
+                String phone = mobile.getText().toString();
+                String newpassword = password.getText().toString();
+                String url = "http://rjtmobile.com/aamir/e-commerce/android-app/shop_reset_pass.php?&mobile="+phone+"&password="+store_pass+"&newpassword="+newpassword;
 
                 StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
                     @Override

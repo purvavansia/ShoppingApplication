@@ -28,12 +28,12 @@ public class NecklaceFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_necklaces,container,false);
 
-        recyclerView = view.findViewById(R.id.recyclerViewNecklace);
+        /*recyclerView = view.findViewById(R.id.recyclerViewNecklace);
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(),2);
         recyclerView.setLayoutManager(gridLayoutManager);
         CustomAdapterGrid customAdapterGrid = new CustomAdapterGrid(getActivity(),NecklaceNames,NecklaceImages,NecklacePrices);
-        recyclerView.setAdapter(customAdapterGrid);
+        recyclerView.setAdapter(customAdapterGrid);*/
         return view;
     }
 }

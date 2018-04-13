@@ -41,8 +41,8 @@ import me.relex.circleindicator.CircleIndicator;
 public class SubCategoryActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    ArrayList<Category> categories;
-    Category category;
+    ArrayList<Category> subcategories;
+    Category subcategory;
     String sliderImage;
     public List<String> sliderList;
     private static ViewPager mPager;
@@ -61,30 +61,32 @@ public class SubCategoryActivity extends AppCompatActivity
             e.printStackTrace();
         }
 
-        /*String id = getIntent().getExtras().getString("id");
-        String apikey = getIntent().getExtras().getString("apikey");
-        String url = "http://rjtmobile.com/ansari/shopingcart/androidapp/cust_category.php?api_key="+apikey+"&user_id="+id;
+        String apiKey = getIntent().getExtras().getString("apikeySub");
+        String user_id = getIntent().getExtras().getString("user_idSub");
+        String cid = getIntent().getExtras().getString("cid");
+
+        String url = "http://rjtmobile.com/ansari/shopingcart/androidapp/cust_sub_category.php?Id="+cid+"&api_key="+apiKey+"&user_id="+user_id;
         //Toast.makeText(this,url,Toast.LENGTH_LONG).show();
-        categories = new ArrayList<>();
+        subcategories = new ArrayList<>();
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 
                 try {
                     JSONObject jsonObject = new JSONObject(response);
-                    JSONArray jsonArray = jsonObject.getJSONArray("category");
+                    JSONArray jsonArray = jsonObject.getJSONArray("subcategory");
 
                     for (int i=0; i<jsonArray.length(); i++){
 
                         JSONObject myCategory = jsonArray.getJSONObject(i);
-                        String image = myCategory.getString("cimagerl");
-                        String name = myCategory.getString("cname");
-                        String cid = myCategory.getString("cid");
-                        String cdiscription = myCategory.getString("cdiscription");
+                        String subimage = myCategory.getString("scimageurl");
+                        String subname = myCategory.getString("scname");
+                        String subcid = myCategory.getString("scid");
+                        String subcdiscription = myCategory.getString("scdiscription");
                         //Toast.makeText(MainActivity.this,image,Toast.LENGTH_SHORT).show();
 
-                        category = new Category(name,image,cid,cdiscription);
-                        categories.add(category);
+                        subcategory = new Category(subname,subimage,subcdiscription,subcid);
+                        subcategories.add(subcategory);
 
                     }
 
@@ -111,8 +113,8 @@ public class SubCategoryActivity extends AppCompatActivity
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerViewSub_category);
         StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(staggeredGridLayoutManager); // set LayoutManager to RecyclerView
-        CustomAdapter customAdapter = new CustomAdapter(SubCategoryActivity.this, categories);
-        recyclerView.setAdapter(customAdapter);*/
+        CustomAdapterSubCategory customAdapter = new CustomAdapterSubCategory(SubCategoryActivity.this, subcategories);
+        recyclerView.setAdapter(customAdapter);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(

@@ -16,60 +16,62 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
+/**
+ * Created by purva on 4/13/18.
+ */
 
+public class CustomAdapterSubCategory extends RecyclerView.Adapter<CustomAdapterSubCategory.MyViewHolder> {
     List<Category> categoryList;
     Context context;
     SharedPreferences sharedPreferences;
-    public CustomAdapter(Context context, ArrayList<Category> categoryList) {
+    public CustomAdapterSubCategory(Context context, ArrayList<Category> categoryList) {
         this.context = context;
         this.categoryList = categoryList;
     }
+
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.rowlayout, parent, false);
 
-        MyViewHolder vh = new MyViewHolder(v);
+        CustomAdapterSubCategory.MyViewHolder vh = new CustomAdapterSubCategory.MyViewHolder(v);
         return vh;
     }
 
-
-   @Override
+    @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
 
-       final Category category = categoryList.get(position);
-       Log.i("image",category.getImage());
+        final Category category = categoryList.get(position);
+        Log.i("image",category.getImage());
         holder.name.setText(category.getName());
         //holder.image.setImageResource((Integer) itemImages.get(position));
-       Picasso.with(context).load(category.getImage()).into(holder.image);
+        Picasso.with(context).load(category.getImage()).into(holder.image);
 
-       holder.image.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
+        holder.image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-               sharedPreferences =  context.getSharedPreferences("myfile", Context.MODE_PRIVATE);
-               String stored_api_key = sharedPreferences.getString("appapikey","");
-               String stored_id = sharedPreferences.getString("userid","");
-               String cid = category.getCid();
+                sharedPreferences =  context.getSharedPreferences("myfile", Context.MODE_PRIVATE);
+                String stored_api_key = sharedPreferences.getString("appapikey","");
+                String stored_id = sharedPreferences.getString("userid","");
+                String subcid = category.getCid();
 
-               //String url = "http://rjtmobile.com/ansari/shopingcart/androidapp/cust_sub_category.php?Id=107&api_key="+stored_api_key+"&user_id="+stored_id;
+                Intent i = new Intent(context,ProductActivity.class);
+                i.putExtra("apikeyProduct",stored_api_key);
+                i.putExtra("user_idProduct",stored_id);
+                i.putExtra("subcid",subcid);
+                context.startActivity(i);
 
-               Intent i = new Intent(context,SubCategoryActivity.class);
-               i.putExtra("apikeySub",stored_api_key);
-               i.putExtra("user_idSub",stored_id);
-               i.putExtra("cid",cid);
-               context.startActivity(i);
-
-           }
-       });
-
+            }
+        });
 
     }
+
     @Override
     public int getItemCount() {
         return categoryList.size();
     }
+
+
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView name;
         ImageView image;

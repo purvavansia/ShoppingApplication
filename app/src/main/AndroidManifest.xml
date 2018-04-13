@@ -26,7 +26,8 @@
         <activity
             android:name=".SubCategoryActivity"
             android:label="@string/title_activity_sub_category"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".ProductActivity"></activity>
     </application>
 
 </manifest>

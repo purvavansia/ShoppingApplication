@@ -6,21 +6,21 @@ package com.example.purva.shoppingapplication;
 
 public class Category {
 
-    String name, image,id,cid;
+    String name, image,desc,cid;
 
-    public Category(String name, String image,String id, String cid) {
+    public Category(String name, String image,String desc, String cid) {
         this.name = name;
         this.image = image;
         this.cid = cid;
-        this.id = id;
+        this.desc = desc;
     }
 
-    public String getId() {
-        return id;
+    public String getDesc() {
+        return desc;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setDesc(String id) {
+        this.desc = id;
     }
 
     public String getCid() {
