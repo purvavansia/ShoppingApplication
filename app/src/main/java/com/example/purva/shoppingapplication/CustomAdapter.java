@@ -1,50 +1,73 @@
 package com.example.purva.shoppingapplication;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
 
-    ArrayList itemNames;
-    ArrayList itemImages;
+    List<Category> categoryList;
     Context context;
-    public CustomAdapter(Context context, ArrayList itemNames, ArrayList itemImages) {
+    SharedPreferences sharedPreferences;
+    public CustomAdapter(Context context, ArrayList<Category> categoryList) {
         this.context = context;
-        this.itemNames = itemNames;
-        this.itemImages = itemImages;
+        this.categoryList = categoryList;
     }
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        // infalte the item Layout
+
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.rowlayout, parent, false);
-        // set the view's size, margins, paddings and layout parameters
-        MyViewHolder vh = new MyViewHolder(v); // pass the view to View Holder
+
+        MyViewHolder vh = new MyViewHolder(v);
         return vh;
     }
 
 
    @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        // set the data in items
-        holder.name.setText(""+itemNames.get(position));
-        holder.image.setImageResource((Integer) itemImages.get(position));
-       //Picasso.with(context).load(itemImages.getImage()).into(holder.image);
-        // implement setOnClickListener event on item view.
+
+       final Category category = categoryList.get(position);
+       Log.i("image",category.getImage());
+        holder.name.setText(category.getName());
+        //holder.image.setImageResource((Integer) itemImages.get(position));
+       Picasso.with(context).load(category.getImage()).into(holder.image);
+
+       holder.image.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+
+               sharedPreferences =  context.getSharedPreferences("myfile", Context.MODE_PRIVATE);
+               String stored_api_key = sharedPreferences.getString("appapikey","");
+               String stored_id = sharedPreferences.getString("userid","");
+               String cid = category.getCid();
+
+               //String url = "http://rjtmobile.com/ansari/shopingcart/androidapp/cust_sub_category.php?Id=107&api_key="+stored_api_key+"&user_id="+stored_id;
+
+               Intent i = new Intent(context,SubCategoryActivity.class);
+               context.startActivity(i);
+
+           }
+       });
+
 
     }
     @Override
     public int getItemCount() {
-        return itemNames.size();
+        return categoryList.size();
     }
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        // init the item view's
         TextView name;
         ImageView image;
         public MyViewHolder(View itemView) {

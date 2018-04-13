@@ -4,8 +4,9 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
-    <color name="app_color">#f7cdd4</color>
-    <color name="primary">#f7cdd4</color>
-    <color name="primaryDark">#f8bbd0</color>
-    <color name="accent">#63aac9</color>
+    <color name="app_color">#4fa79b</color>
+    <color name="primary">#4fa79b</color>
+    <color name="primaryDark">#357169</color>
+    <color name="accent">#ff9900</color>
+    <color name="text">#345199</color>
 </resources>

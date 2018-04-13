@@ -2,7 +2,9 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#fff"
     android:orientation="vertical"
+
     >
 
 
@@ -11,7 +13,7 @@
         android:gravity="center"
         android:id="@+id/textView"
         android:textSize="30dp"
-        android:textColor="@color/accent"
+        android:textColor="@color/text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Create An Account" />
@@ -19,7 +21,7 @@
         android:layout_marginTop="40dp"
         android:id="@+id/editTextSignupName"
         android:layout_width="300dp"
-        android:gravity="center"
+        android:paddingLeft="5dp"
         android:layout_gravity="center"
         android:layout_height="40dp"
         android:background="#ecebeb"
@@ -31,7 +33,7 @@
         android:layout_marginTop="10dp"
         android:id="@+id/editTextSignupLastName"
         android:layout_width="300dp"
-        android:gravity="center"
+        android:paddingLeft="5dp"
         android:layout_gravity="center"
         android:layout_height="40dp"
         android:background="#ecebeb"
@@ -43,7 +45,7 @@
         android:layout_marginTop="10dp"
         android:id="@+id/editTextSignupAddr"
         android:layout_width="300dp"
-        android:gravity="center"
+        android:paddingLeft="5dp"
         android:layout_gravity="center"
         android:layout_height="40dp"
         android:background="#ecebeb"
@@ -55,7 +57,7 @@
         android:layout_marginTop="10dp"
         android:id="@+id/editTextSignupEmail"
         android:layout_width="300dp"
-        android:gravity="center"
+        android:paddingLeft="5dp"
         android:layout_gravity="center"
         android:layout_height="40dp"
         android:background="#ecebeb"
@@ -67,7 +69,7 @@
         android:layout_marginTop="10dp"
         android:id="@+id/editTextSignupPhone"
         android:layout_width="300dp"
-        android:gravity="center"
+        android:paddingLeft="5dp"
         android:layout_gravity="center"
         android:layout_height="40dp"
         android:background="#ecebeb"
@@ -80,7 +82,7 @@
         android:layout_marginTop="10dp"
         android:id="@+id/editTextSignupPass"
         android:layout_width="300dp"
-        android:gravity="center"
+        android:paddingLeft="5dp"
         android:layout_gravity="center"
         android:layout_height="40dp"
         android:background="#ecebeb"
@@ -94,15 +96,17 @@
         android:layout_gravity="center"
         android:text="By Signing up you are agreeing to terms and conditions of RJT Shopping App"
         android:layout_width="300dp"
+        android:textColor="@color/text"
         android:layout_height="wrap_content" />
 
     <Button
         android:gravity="center"
         android:layout_gravity="center"
-
+        android:layout_marginTop="10dp"
         android:id="@+id/buttonSignup"
         android:background="@drawable/button_layout"
         android:layout_width="300dp"
+        android:textColor="#fff"
         android:textSize="15dp"
         android:layout_height="wrap_content"
         android:text="Sign Up" />

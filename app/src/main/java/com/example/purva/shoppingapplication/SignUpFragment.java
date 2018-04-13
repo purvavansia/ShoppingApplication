@@ -52,19 +52,27 @@ public class SignUpFragment extends Fragment {
                 String fname = etFname.getText().toString();
                 String lname =etLname.getText().toString();
                 String address = etAddr.getText().toString();
-                String email = etEmail.getText().toString();
-                String phone = etPhone.getText().toString();
+                final String email = etEmail.getText().toString();
+                final String phone = etPhone.getText().toString();
                 String password = etPass.getText().toString();
 
-                if(isValidEmail(email) && isValidPassword(password) && isValidName(fname) && isValidName(lname)) {
+                if(isValidEmail(email) && isValidPassword(password) && isValidName(fname) && isValidName(lname) &&isValidPhone(phone)) {
                     String url = "http://rjtmobile.com/aamir/e-commerce/android-app/shop_reg.php?fname=" + fname + "&lname=" + lname + "&address=" + address + "& email=" + email + "&mobile=" + phone + "&password=" + password + "\n";
                     StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
 
-                            Intent intent = new Intent(getActivity(), MainActivity.class);
-                            startActivity(intent);
-                            Toast.makeText(getActivity(), "SignUp successful", Toast.LENGTH_SHORT).show();
+                            if(response.contains("successfully registered")) {
+                                LoginFragment loginFragment = new LoginFragment();
+                                /*Bundle bundle = new Bundle();
+                                bundle.putString("mobile", phone);
+                                loginFragment.setArguments(bundle);*/
+                                getFragmentManager().beginTransaction().replace(R.id.linearLayoutLogin, loginFragment).addToBackStack(null).commit();
+                                Toast.makeText(getActivity(), "SignUp successful", Toast.LENGTH_SHORT).show();
+                            }
+                            else {
+                                Toast.makeText(getActivity(), "Sorry SignUp failed: " + response, Toast.LENGTH_SHORT).show();
+                            }
                             Log.i("Response Request", response);
                         }
                     }, new Response.ErrorListener() {
@@ -100,7 +108,13 @@ public class SignUpFragment extends Fragment {
 
         Pattern pattern = Pattern.compile(EMAIL_PATTERN);
         Matcher matcher = pattern.matcher(email);
-        return matcher.matches();
+        if(matcher.matches()){
+            return matcher.matches();
+        }
+        else{
+            Toast.makeText(getActivity(),"Enter a valid email address",Toast.LENGTH_SHORT).show();
+            return matcher.matches();
+        }
     }
 
     private boolean isValidName(String name){
@@ -108,7 +122,14 @@ public class SignUpFragment extends Fragment {
 
         Pattern pattern = Pattern.compile(EMAIL_PATTERN);
         Matcher matcher = pattern.matcher(name);
-        return matcher.matches();
+        if(matcher.matches()){
+            return matcher.matches();
+        }
+        else{
+            Toast.makeText(getActivity(),"Enter a valid name",Toast.LENGTH_SHORT).show();
+            return matcher.matches();
+        }
+
     }
 
     // validating password with retype password
@@ -116,6 +137,18 @@ public class SignUpFragment extends Fragment {
         if (pass != null && pass.length() > 6) {
             return true;
         }
-        return false;
+        else {
+            Toast.makeText(getActivity(),"Password must be atleast 6 characters",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+    }
+    private boolean isValidPhone(String phone) {
+        if (phone != null && phone.length() ==10 ) {
+            return true;
+        }
+        else {
+            Toast.makeText(getActivity(),"Password must be atleast 6 characters",Toast.LENGTH_SHORT).show();
+            return false;
+        }
     }
 }

@@ -11,7 +11,7 @@
         android:gravity="center"
         android:id="@+id/textView"
         android:textSize="30dp"
-        android:textColor="@color/accent"
+        android:textColor="@color/text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Update Account" />
@@ -104,6 +104,7 @@
         android:background="@drawable/button_layout"
         android:layout_width="300dp"
         android:textSize="15dp"
+        android:textColor="#fff"
         android:layout_height="wrap_content"
         android:text="Update" />
 

@@ -10,21 +10,19 @@ public class ManageLoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_login);
 
+        LoginFragment loginFragment1 = new LoginFragment();
+
+        getFragmentManager().beginTransaction().replace(R.id.linearLayoutLogin,loginFragment1).addToBackStack(null).commit();
 
 
-       /* SignUpFragment signUpFragment = new SignUpFragment();
-        getFragmentManager().beginTransaction().replace(R.id.linearLayoutLogin,signUpFragment).addToBackStack(null).commit();*/
 
-       /*UpdateInfoFragment updateInfoFragment = new UpdateInfoFragment();
-       getFragmentManager().beginTransaction().replace(R.id.linearLayoutLogin,updateInfoFragment).addToBackStack(null).commit();*/
-
-       if(getIntent().getExtras().getBoolean("action") == true){
+      /* if(getIntent().getExtras().getBoolean("action") == true){
             LoginFragment loginFragment = new LoginFragment();
         getFragmentManager().beginTransaction().replace(R.id.linearLayoutLogin,loginFragment).addToBackStack(null).commit();
        }
        else if(getIntent().getExtras().getBoolean("action") == false){
            SignUpFragment signUpFragment = new SignUpFragment();
            getFragmentManager().beginTransaction().replace(R.id.linearLayoutLogin,signUpFragment).addToBackStack(null).commit();
-       }
+       }*/
     }
 }

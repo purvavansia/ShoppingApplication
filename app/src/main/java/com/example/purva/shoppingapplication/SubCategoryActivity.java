@@ -1,7 +1,7 @@
 package com.example.purva.shoppingapplication;
 
-import android.content.AsyncTaskLoader;
-import android.content.Intent;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
@@ -19,7 +19,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -33,32 +32,36 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import me.relex.circleindicator.CircleIndicator;
 
-public class MainActivity extends AppCompatActivity
+public class SubCategoryActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
 
     ArrayList<Category> categories;
     Category category;
     String sliderImage;
+    public List<String> sliderList;
     private static ViewPager mPager;
     private static int currentPage = 0;
-    public List<String> sliderList;
-
+    SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_sub_category);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        String id = getIntent().getExtras().getString("id");
+        try {
+            init();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        /*String id = getIntent().getExtras().getString("id");
         String apikey = getIntent().getExtras().getString("apikey");
         String url = "http://rjtmobile.com/ansari/shopingcart/androidapp/cust_category.php?api_key="+apikey+"&user_id="+id;
         //Toast.makeText(this,url,Toast.LENGTH_LONG).show();
@@ -95,7 +98,7 @@ public class MainActivity extends AppCompatActivity
 
             }
         });
-        RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);
+        RequestQueue requestQueue = Volley.newRequestQueue(SubCategoryActivity.this);
         requestQueue.add(stringRequest);
 
 
@@ -105,27 +108,11 @@ public class MainActivity extends AppCompatActivity
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerViewSub_category);
         StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(staggeredGridLayoutManager); // set LayoutManager to RecyclerView
-        CustomAdapter customAdapter = new CustomAdapter(MainActivity.this, categories);
-        recyclerView.setAdapter(customAdapter);
-
-
-        /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                *//*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();*//*
-            }
-        });*/
-
-        try {
-            init();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        CustomAdapter customAdapter = new CustomAdapter(SubCategoryActivity.this, categories);
+        recyclerView.setAdapter(customAdapter);*/
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -150,11 +137,9 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.sub_category, menu);
         return true;
     }
-
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -162,22 +147,11 @@ public class MainActivity extends AppCompatActivity
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        boolean isLogin = false;
+
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_Login) {
-            isLogin = true;
-            Intent intentLogin = new Intent(MainActivity.this,ManageLoginActivity.class);
-            intentLogin.putExtra("action",isLogin);
-            startActivity(intentLogin);
+       /* if (id == R.id.action_settings) {
             return true;
-        }
-        else if (id == R.id.action_SignUp) {
-            isLogin = false;
-            Intent intentSignup = new Intent(MainActivity.this,ManageLoginActivity.class);
-            intentSignup.putExtra("action",isLogin);
-            startActivity(intentSignup);
-            return true;
-        }
+        }*/
 
         return super.onOptionsItemSelected(item);
     }
@@ -187,33 +161,35 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+/*
+        if (id == R.id.nav_camera) {
+            // Handle the camera action
+        } else if (id == R.id.nav_gallery) {
 
-        if (id == R.id.nav_profile) {
-            /*UpdateInfoFragment updateInfoFragment = new UpdateInfoFragment();
-            getFragmentManager().beginTransaction().replace(R.id.linearLayoutLogin,updateInfoFragment).addToBackStack(null).commit();*/
-        } else if (id == R.id.nav_orders) {
+        } else if (id == R.id.nav_slideshow) {
 
-        } else if (id == R.id.nav_deals) {
+        } else if (id == R.id.nav_manage) {
 
-        } else if (id == R.id.nav_faqs) {
+        } else if (id == R.id.nav_share) {
 
-        } else if (id == R.id.nav_service) {
+        } else if (id == R.id.nav_send) {
 
-        }
+        }*/
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
     private void init() throws InterruptedException {
 
+        sharedPreferences =  getSharedPreferences("myfile", Context.MODE_PRIVATE);
         //final Integer[] SLIDER= {R.drawable.slider_image1,R.drawable.slider_image2,R.drawable.slider_image3,R.drawable.slider_image4,R.drawable.slider_image5};
 
+        String stored_api_key = sharedPreferences.getString("appapikey","");
+        String stored_id = sharedPreferences.getString("userid","");
 
-        String id = getIntent().getExtras().getString("id");
-        String apikey = getIntent().getExtras().getString("apikey");
-        String url = "http://rjtmobile.com/ansari/shopingcart/androidapp/cust_category.php?api_key="+apikey+"&user_id="+id;
+
+        String url = "http://rjtmobile.com/ansari/shopingcart/androidapp/cust_category.php?api_key="+stored_api_key+"&user_id="+stored_id;
         //Toast.makeText(this,url,Toast.LENGTH_LONG).show();
         sliderList = new ArrayList<>();
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
@@ -239,8 +215,8 @@ public class MainActivity extends AppCompatActivity
                     for(int i=0;i<sliderList.size();i++)
                         SliderArray.add(sliderList.get(i));
 
-                    mPager = (ViewPager) findViewById(R.id.pager);
-                    mPager.setAdapter(new MyAdapter(MainActivity.this,SliderArray));
+                    mPager = (ViewPager) findViewById(R.id.pagerSub_category);
+                    mPager.setAdapter(new MyAdapter(SubCategoryActivity.this,SliderArray));
                     CircleIndicator indicator = (CircleIndicator) findViewById(R.id.indicator);
                     indicator.setViewPager(mPager);
                     final Handler handler = new Handler();
@@ -271,7 +247,7 @@ public class MainActivity extends AppCompatActivity
 
             }
         });
-        RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);
+        RequestQueue requestQueue = Volley.newRequestQueue(SubCategoryActivity.this);
         requestQueue.add(stringRequest);
     }
 }
