@@ -1,35 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/custom_item_layout"
+    android:layout_margin="10dp"
+    android:orientation="vertical"
+    android:background="@drawable/button_layout_simple"
     android:padding="5dp">
     <!--
     grid items for RecyclerView
     -->
     <ImageView
+
         android:id="@+id/imageGrid"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:minHeight="200dp"
+        android:layout_height="200dp"
         android:scaleType="fitXY"
         android:src="@mipmap/ic_launcher" />
+
     <TextView
+
         android:id="@+id/nameGrid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
+       android:layout_marginTop="5dp"
+        android:textColor="@color/text"
         android:text="ABCD"
-        android:textSize="20sp"
-        android:textColor="#fff" />
+        android:textSize="20sp" />
+
     <TextView
+
         android:id="@+id/priceGrid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/imageGrid"
+        android:layout_marginTop="5dp"
+      android:textColor="@color/text"
         android:text="ABCD"
-        android:textSize="20sp"
-        android:textColor="#fff" />
+        android:textSize="20sp" />
 
-</RelativeLayout>
+</LinearLayout>

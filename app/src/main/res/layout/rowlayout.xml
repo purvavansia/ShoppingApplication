@@ -16,11 +16,13 @@
         android:src="@mipmap/ic_launcher" />
     <TextView
         android:id="@+id/name"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:text="ABCD"
         android:textSize="20sp"
+        android:background="#25000000"
         android:textColor="#fff" />
 </RelativeLayout>

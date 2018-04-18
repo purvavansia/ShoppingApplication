@@ -12,19 +12,8 @@
             android:id="@+id/nav_orders"
             android:icon="@drawable/orders"
             android:title="My Orders" />
-        <item
-            android:id="@+id/nav_deals"
-            android:icon="@drawable/deals"
-            android:title="View Deals" />
-        <item
-            android:id="@+id/nav_faqs"
-            android:icon="@drawable/faqs"
-            android:title="FAQs" />
 
-        <item
-            android:id="@+id/nav_service"
-            android:icon="@drawable/service"
-            android:title="Customer Service" />
+
     </group>
 
 </menu>

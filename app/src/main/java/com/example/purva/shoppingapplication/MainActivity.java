@@ -1,16 +1,12 @@
 package com.example.purva.shoppingapplication;
 
-import android.content.AsyncTaskLoader;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -19,7 +15,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
+import android.view.View;
+import android.widget.Button;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -27,13 +24,21 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.purva.shoppingapplication.activity.CheckOutActivity;
+import com.example.purva.shoppingapplication.activity.ManageLoginActivity;
+import com.example.purva.shoppingapplication.activity.ManageNavActivity;
+import com.example.purva.shoppingapplication.activity.OrderHistroyActivity;
+import com.example.purva.shoppingapplication.activity.ProductDetailsActivity;
+import com.example.purva.shoppingapplication.activity.WhishListActivity;
+import com.example.purva.shoppingapplication.adapters.CustomAdapter;
+import com.example.purva.shoppingapplication.adapters.MyAdapter;
+import com.example.purva.shoppingapplication.pojo.Category;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -50,6 +55,7 @@ public class MainActivity extends AppCompatActivity
     private static ViewPager mPager;
     private static int currentPage = 0;
     public List<String> sliderList;
+    Button cart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +64,14 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        cart = findViewById(R.id.buttonCartHome);
+        cart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this,CheckOutActivity.class);
+                startActivity(i);
+            }
+        });
         String id = getIntent().getExtras().getString("id");
         String apikey = getIntent().getExtras().getString("apikey");
         String url = "http://rjtmobile.com/ansari/shopingcart/androidapp/cust_category.php?api_key="+apikey+"&user_id="+id;
@@ -84,6 +98,13 @@ public class MainActivity extends AppCompatActivity
                         categories.add(category);
 
                     }
+                    RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+                    StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL);
+                    recyclerView.setLayoutManager(staggeredGridLayoutManager); // set LayoutManager to RecyclerView
+                    CustomAdapter customAdapter = new CustomAdapter(MainActivity.this, categories);
+                    customAdapter.notifyDataSetChanged();
+                    recyclerView.setAdapter(customAdapter);
+
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -97,19 +118,6 @@ public class MainActivity extends AppCompatActivity
         });
         RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);
         requestQueue.add(stringRequest);
-
-
-
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL);
-        recyclerView.setLayoutManager(staggeredGridLayoutManager); // set LayoutManager to RecyclerView
-        CustomAdapter customAdapter = new CustomAdapter(MainActivity.this, categories);
-        recyclerView.setAdapter(customAdapter);
 
 
         /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -189,17 +197,32 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_profile) {
-            /*UpdateInfoFragment updateInfoFragment = new UpdateInfoFragment();
-            getFragmentManager().beginTransaction().replace(R.id.linearLayoutLogin,updateInfoFragment).addToBackStack(null).commit();*/
+            Intent navIntent = new Intent(MainActivity.this,ManageNavActivity.class);
+            navIntent.putExtra("selection","profile");
+            startActivity(navIntent);
         } else if (id == R.id.nav_orders) {
-
-        } else if (id == R.id.nav_deals) {
-
-        } else if (id == R.id.nav_faqs) {
-
-        } else if (id == R.id.nav_service) {
+            Intent i = new Intent(MainActivity.this,OrderHistroyActivity.class);
+            startActivity(i);
 
         }
+        else if (id == R.id.nav_logout) {
+            Intent navIntent = new Intent(MainActivity.this,ManageLoginActivity.class);
+            navIntent.putExtra("selection","logout");
+            startActivity(navIntent);
+
+        }
+        else if (id == R.id.nav_about_us) {
+            Intent navIntent = new Intent(MainActivity.this,ManageLoginActivity.class);
+            //navIntent.putExtra("selection","logout");
+            startActivity(navIntent);
+
+        }
+        else if (id == R.id.nav_wishList) {
+            Intent navIntent = new Intent(MainActivity.this,WhishListActivity.class);
+            startActivity(navIntent);
+
+        }
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -207,9 +230,6 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void init() throws InterruptedException {
-
-        //final Integer[] SLIDER= {R.drawable.slider_image1,R.drawable.slider_image2,R.drawable.slider_image3,R.drawable.slider_image4,R.drawable.slider_image5};
-
 
         String id = getIntent().getExtras().getString("id");
         String apikey = getIntent().getExtras().getString("apikey");

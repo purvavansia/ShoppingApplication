@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:id="@+id/linearLayoutLogin"
     android:orientation="vertical"
-    tools:context="com.example.purva.shoppingapplication.ManageLoginActivity">
+    tools:context="com.example.purva.shoppingapplication.activity.ManageLoginActivity">
+
 
 </LinearLayout>

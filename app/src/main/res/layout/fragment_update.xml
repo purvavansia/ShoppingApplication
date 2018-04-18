@@ -14,8 +14,9 @@
         android:textColor="@color/text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Update Account" />
+        android:text="@string/update_account" />
     <ImageView
+        android:id="@+id/imageViewUploadPic"
         android:layout_marginTop="40dp"
         android:src="@drawable/user"
         android:layout_gravity="center"
@@ -25,88 +26,82 @@
         android:layout_marginTop="40dp"
         android:id="@+id/editTextUpdateFirstName"
         android:layout_width="300dp"
-        android:gravity="center"
+        android:paddingLeft="5dp"
         android:layout_gravity="center"
         android:layout_height="40dp"
         android:background="#ecebeb"
         android:textSize="20dp"
         android:ems="10"
+        android:hint="First Name"
         android:inputType="textPersonName"
-        android:text="First Name" />
+        android:text="" />
     <EditText
         android:layout_marginTop="10dp"
         android:id="@+id/editTextUpdateLastName"
         android:layout_width="300dp"
-        android:gravity="center"
+        android:paddingLeft="5dp"
         android:layout_gravity="center"
         android:layout_height="40dp"
         android:background="#ecebeb"
         android:textSize="20dp"
         android:ems="10"
+        android:hint="Last Name"
         android:inputType="textPersonName"
-        android:text="Last Name" />
+        android:text="" />
     <EditText
         android:layout_marginTop="10dp"
         android:id="@+id/editTextUpdateAddr"
         android:layout_width="300dp"
-        android:gravity="center"
+        android:paddingLeft="5dp"
         android:layout_gravity="center"
         android:layout_height="40dp"
         android:background="#ecebeb"
         android:textSize="20dp"
         android:ems="10"
+        android:hint="Address"
         android:inputType="textEmailAddress"
-        android:text="Address" />
+        android:text="" />
     <EditText
         android:layout_marginTop="10dp"
         android:id="@+id/editTextUpdateEmail"
         android:layout_width="300dp"
-        android:gravity="center"
+        android:paddingLeft="5dp"
         android:layout_gravity="center"
         android:layout_height="40dp"
         android:background="#ecebeb"
         android:textSize="20dp"
         android:ems="10"
+        android:hint="Email"
         android:inputType="textEmailAddress"
-        android:text="Email" />
+        android:text="" />
     <EditText
         android:layout_marginTop="10dp"
         android:id="@+id/editTextUpdatePhone"
         android:layout_width="300dp"
-        android:gravity="center"
+        android:paddingLeft="5dp"
         android:layout_gravity="center"
         android:layout_height="40dp"
         android:background="#ecebeb"
         android:textSize="20dp"
         android:ems="10"
+        android:hint="Phone"
         android:inputType="phone"
-        android:text="Phone" />
+        android:text="" />
 
-    <EditText
-        android:layout_marginTop="10dp"
-        android:id="@+id/editTextUpdatePass"
-        android:layout_width="300dp"
-        android:gravity="center"
-        android:layout_gravity="center"
-        android:layout_height="40dp"
-        android:background="#ecebeb"
-        android:textSize="20dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:text="Password" />
+
 
 
     <Button
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="60dp"
         android:gravity="center"
         android:layout_gravity="center"
-        android:id="@+id/buttonSignin"
+        android:id="@+id/buttonUpdateInfo"
         android:background="@drawable/button_layout"
         android:layout_width="300dp"
         android:textSize="15dp"
         android:textColor="#fff"
         android:layout_height="wrap_content"
-        android:text="Update" />
+        android:text="@string/update" />
 
 
 

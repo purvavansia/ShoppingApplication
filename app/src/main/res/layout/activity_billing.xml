@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <TextView
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:id="@+id/textView"
+        android:textSize="30dp"
+        android:textColor="@color/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/billing_details" />
+
+    <EditText
+        android:layout_marginTop="60dp"
+        android:id="@+id/editTextBillingDetailsName"
+        android:layout_width="300dp"
+        android:paddingLeft="5dp"
+        android:layout_gravity="center"
+        android:layout_height="40dp"
+        android:background="#ecebeb"
+        android:textSize="20dp"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="textPersonName"
+        android:text="" />
+    <EditText
+        android:layout_marginTop="10dp"
+        android:id="@+id/editTextBillingAddr"
+        android:layout_width="300dp"
+        android:paddingLeft="5dp"
+        android:layout_gravity="center"
+        android:layout_height="40dp"
+        android:background="#ecebeb"
+        android:textSize="20dp"
+        android:ems="10"
+        android:hint="Billing Address"
+        android:inputType="textPersonName"
+        android:text="" />
+    <EditText
+        android:layout_marginTop="10dp"
+        android:id="@+id/editTextDeliveryAddr"
+        android:layout_width="300dp"
+        android:paddingLeft="5dp"
+        android:layout_gravity="center"
+        android:layout_height="40dp"
+        android:background="#ecebeb"
+        android:textSize="20dp"
+        android:ems="10"
+        android:hint="Delivery Address"
+        android:inputType="textEmailAddress"
+        android:text="" />
+    <EditText
+        android:layout_marginTop="10dp"
+        android:id="@+id/editTextBillingEmail"
+        android:layout_width="300dp"
+        android:paddingLeft="5dp"
+        android:layout_gravity="center"
+        android:layout_height="40dp"
+        android:background="#ecebeb"
+        android:textSize="20dp"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:text="" />
+    <EditText
+        android:layout_marginTop="10dp"
+        android:id="@+id/editTextBillingPhone"
+        android:layout_width="300dp"
+        android:paddingLeft="5dp"
+        android:layout_gravity="center"
+        android:layout_height="40dp"
+        android:background="#ecebeb"
+        android:textSize="20dp"
+        android:ems="10"
+        android:hint="Phone"
+        android:inputType="phone"
+        android:text="" />
+
+
+
+
+    <Button
+        android:layout_marginTop="70dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:id="@+id/buttonConfirm"
+        android:background="@drawable/button_layout"
+        android:layout_width="300dp"
+        android:textSize="15dp"
+        android:textColor="#fff"
+        android:layout_height="wrap_content"
+        android:text="@string/button_confirm" />
+
+</LinearLayout>

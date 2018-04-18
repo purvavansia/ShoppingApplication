@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.purva.shoppingapplication.activity.OrderConfirmActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" >
+            <LinearLayout
+                android:background="@color/app_color"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/textViewTitle"
+                    android:layout_width="130dp"
+                    android:gravity="center"
+                    android:layout_height="35dp"
+                    android:textSize="25dp"
+                    android:textColor="#fff"
+                    android:textStyle="bold"
+                    android:background="@drawable/amazon"
+                    android:layout_marginTop="10dp"
+                    android:inputType="textPersonName"
+                    android:text="" />
+
+
+            </LinearLayout>
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:id="@+id/textViewTitleOrder"
+        android:textSize="30dp"
+        android:textColor="@color/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Thank You For Placing The Order" />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:id="@+id/textViewOrderDetails"
+        android:textSize="25dp"
+        android:textColor="@color/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Your Order Details Are:" />
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="320dp">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerViewOrders"
+            android:layout_width="match_parent"
+            android:layout_height="320dp" />
+    </RelativeLayout>
+<LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <Button
+        android:layout_marginTop="30dp"
+        android:id="@+id/buttonViewOrderHistroy"
+        android:layout_width="wrap_content"
+        android:textSize="20dp"
+        android:layout_marginLeft="90dp"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:layout_gravity="center"
+        android:text="@string/view_order_histroy"
+        android:textColor="@color/text"
+        android:background="@drawable/button_layout_simple"
+        android:layout_height="wrap_content" />
+    <android.support.design.widget.FloatingActionButton
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/text"
+        android:clickable="true"
+        android:id="@+id/floatingActionButton"
+        android:src="@drawable/home"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
+
+
+</LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/button_layout_simple"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_marginTop="30dp"
+       android:paddingLeft="10dp"
+        android:id="@+id/textViewOrderId"
+        android:textSize="25dp"
+        android:layout_gravity="center"
+        android:textColor="@color/text"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="" />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:paddingLeft="10dp"
+        android:id="@+id/textViewOrderName"
+        android:textSize="25dp"
+        android:textColor="@color/text"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="" />
+    <TextView
+        android:layout_marginTop="10dp"
+        android:paddingLeft="10dp"
+        android:id="@+id/textViewOrderPlacedOn"
+        android:layout_gravity="center"
+        android:textSize="25dp"
+        android:textColor="@color/text"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="" />
+    <TextView
+        android:layout_marginTop="10dp"
+        android:paddingLeft="10dp"
+        android:id="@+id/textViewOrderDeliveryAddr"
+        android:textSize="25dp"
+        android:textColor="@color/text"
+        android:layout_gravity="center"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="" />
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:paddingLeft="10dp"
+        android:id="@+id/textViewOrderPhone"
+        android:textSize="25dp"
+        android:textColor="@color/text"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="" />
+
+</LinearLayout>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:textColor="@color/text"
+        android:textSize="30dp"
+        android:text="Libraries Used in the Project:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_marginTop="70dp"
+        android:layout_gravity="center"
+        android:textColor="@color/text"
+        android:textSize="20dp"
+        android:text="Volley"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:textColor="@color/text"
+        android:textSize="20dp"
+        android:text="RecyclerView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:textColor="@color/text"
+        android:textSize="20dp"
+        android:text="Swipe Menu List View"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:textColor="@color/text"
+        android:textSize="20dp"
+        android:text="BrainTree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:textColor="@color/text"
+        android:textSize="20dp"
+        android:text="Picasso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:textColor="@color/text"
+        android:textSize="20dp"
+        android:text="CardView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:textColor="@color/text"
+        android:textSize="20dp"
+        android:text="Lottie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:background="@drawable/button_layout_simple"
+        android:layout_marginTop="70dp"
+        android:layout_gravity="center"
+        android:id="@+id/buttonNext"
+        android:text="Go to The Application"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>

@@ -16,7 +16,7 @@
         android:textColor="@color/text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Create An Account" />
+        android:text="@string/create_an_account" />
     <EditText
         android:layout_marginTop="40dp"
         android:id="@+id/editTextSignupName"
@@ -27,8 +27,9 @@
         android:background="#ecebeb"
         android:textSize="20dp"
         android:ems="10"
+        android:hint="First Name"
         android:inputType="textPersonName"
-        android:text="First Name" />
+        android:text="" />
     <EditText
         android:layout_marginTop="10dp"
         android:id="@+id/editTextSignupLastName"
@@ -39,8 +40,9 @@
         android:background="#ecebeb"
         android:textSize="20dp"
         android:ems="10"
+        android:hint="Last Name"
         android:inputType="textPersonName"
-        android:text="Last Name" />
+        android:text="" />
     <EditText
         android:layout_marginTop="10dp"
         android:id="@+id/editTextSignupAddr"
@@ -51,8 +53,9 @@
         android:background="#ecebeb"
         android:textSize="20dp"
         android:ems="10"
+        android:hint="Address"
         android:inputType="textEmailAddress"
-        android:text="Address" />
+        android:text="" />
     <EditText
         android:layout_marginTop="10dp"
         android:id="@+id/editTextSignupEmail"
@@ -63,8 +66,9 @@
         android:background="#ecebeb"
         android:textSize="20dp"
         android:ems="10"
+        android:hint="Email"
         android:inputType="textEmailAddress"
-        android:text="Email" />
+        android:text="" />
     <EditText
         android:layout_marginTop="10dp"
         android:id="@+id/editTextSignupPhone"
@@ -75,8 +79,9 @@
         android:background="#ecebeb"
         android:textSize="20dp"
         android:ems="10"
+        android:hint="Phone"
         android:inputType="phone"
-        android:text="Phone" />
+        android:text="" />
 
     <EditText
         android:layout_marginTop="10dp"
@@ -88,13 +93,14 @@
         android:background="#ecebeb"
         android:textSize="20dp"
         android:ems="10"
+        android:hint="Password"
         android:inputType="textPassword"
-        android:text="Password" />
+        android:text="" />
     <TextView
         android:layout_marginTop="60dp"
         android:gravity="center"
         android:layout_gravity="center"
-        android:text="By Signing up you are agreeing to terms and conditions of RJT Shopping App"
+        android:text="@string/agreement"
         android:layout_width="300dp"
         android:textColor="@color/text"
         android:layout_height="wrap_content" />
@@ -109,7 +115,7 @@
         android:textColor="#fff"
         android:textSize="15dp"
         android:layout_height="wrap_content"
-        android:text="Sign Up" />
+        android:text="@string/sign_up" />
 
     <Button
         android:gravity="center"
@@ -120,7 +126,7 @@
         android:background="@drawable/button_layout_simple"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="Already Have an account" />
+        android:text="@string/already_have_an_account" />
 
 
 
